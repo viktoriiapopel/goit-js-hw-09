@@ -1,3 +1,7 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
+
 const ulImage = document.querySelector('.gallery')
 
 const images = [
@@ -86,3 +90,7 @@ function fotosTemplate(images) {
 
 ulImage.innerHTML = fotosTemplate(images);
 
+new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});т
