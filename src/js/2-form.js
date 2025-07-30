@@ -16,21 +16,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-formEl.addEventListener('input', e => {
-    const email = e.currentTarget.elements.email.value;
-    const message = e.currentTarget.elements.message.value;
+    formEl.addEventListener('input', e => {
+   
+    const email = e.currentTarget.elements.email.value.trim();
+    const message = e.currentTarget.elements.message.value.trim();
 
     formData.email = email;
     formData.message = message;
 
-    saveToLS('feedback-form-state', formData);
-});
-});
-
-formEL.addEventListener('submit', click => {
+        saveToLS('feedback-form-state', formData);
+        
+        
+    });
     
-})
+    formEl.addEventListener('submit', e => {
+    e.preventDefault();
 
+    const email = formEl.elements.email.value.trim();
+    const message = formEl.elements.message.value.trim();
+
+    if (email === "" || message === "") {
+        alert("Fill please all fields");
+        return;
+    }
+    console.log('Submitted data:', { email, message });
+  
+     localStorage.removeItem('feedback-form-state');
+    formEl.reset();
+    formData = { email: '', message: '' };
+});
+});
 
 
 function saveToLS(key, value) {
