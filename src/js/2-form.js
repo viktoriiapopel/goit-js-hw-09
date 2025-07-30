@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
   
-    const lsData = getFromLS('formData');
+    const lsData = getFromLS('feedback-form-state');
     if (lsData && typeof lsData === 'object') {
         formData = lsData;
         formEl.elements.email.value = lsData.email || '';
@@ -23,9 +23,13 @@ formEl.addEventListener('input', e => {
     formData.email = email;
     formData.message = message;
 
-    saveToLS('formData', formData);
+    saveToLS('feedback-form-state', formData);
 });
 });
+
+formEL.addEventListener('submit', click => {
+    
+})
 
 
 
