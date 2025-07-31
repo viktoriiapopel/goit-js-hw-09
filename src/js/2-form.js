@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formEl.addEventListener('input', e => {
    
-    const email = e.currentTarget.elements.email.value.trim();
-    const message = e.currentTarget.elements.message.value.trim();
+    const email = e.currentTarget.elements.email.value;
+    const message = e.currentTarget.elements.message.value;
 
     formData.email = email;
     formData.message = message;
@@ -28,10 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
     });
-    
+
     formEl.addEventListener('submit', e => {
     e.preventDefault();
 
+        // const form = e.currentTarget;
     const email = formEl.elements.email.value.trim();
     const message = formEl.elements.message.value.trim();
 
@@ -39,11 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("Fill please all fields");
         return;
     }
-    console.log('Submitted data:', { email, message });
-  
-     localStorage.removeItem('feedback-form-state');
-    formEl.reset();
-    formData = { email: '', message: '' };
+     console.log('Submitted data:', { email, message });
+
+    
+    localStorage.removeItem('feedback-form-state');
+        formData = { email: '', message: '' };
+        
+        formEl.reset(); 
+        // form.reset();
 });
 });
 
@@ -51,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function saveToLS(key, value) {
     const jsonData = JSON.stringify(value);
     localStorage.setItem(key, jsonData);
-};
+}
 
 function getFromLS(key, defaultValue) {
     const jsonData = localStorage.getItem(key);
@@ -61,6 +65,6 @@ function getFromLS(key, defaultValue) {
     } catch {
         return defaultValue || jsonData;
     }
-};
+}
 
 
