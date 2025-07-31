@@ -1,0 +1,44 @@
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+}
+.user-info {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.user-info input {
+  display: block;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 40px;
+}
+
+.button {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 8px;
+  border: solid #4e75ff;
+  padding: 8px 16px;
+  background: #4e75ff;
+}
+.but-size-four {
+  width: 86px;
+  height: 40px;
+  margin-top: 8px;
+}
+.but-size-four:hover {
+  background: #6c8cff;
+  border: solid #6c8cff;
+}
