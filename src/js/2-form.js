@@ -1,12 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const formEl = document.querySelector('.feedback-form');
-
-    let formData = {
+let formData = {
         email: '',
         message: '',
     };
 
-  
+
+document.addEventListener('DOMContentLoaded', () => {
+    const formEl = document.querySelector('.feedback-form');
+
+
     const lsData = getFromLS('feedback-form-state');
     if (lsData && typeof lsData === 'object') {
         formData = lsData;
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formEl.addEventListener('submit', e => {
     e.preventDefault();
 
-        // const form = e.currentTarget;
+       
     const email = formEl.elements.email.value.trim();
     const message = formEl.elements.message.value.trim();
 
@@ -40,14 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("Fill please all fields");
         return;
     }
-     console.log('Submitted data:', { email, message });
+     console.log('Submitted data:', formData);
 
     
     localStorage.removeItem('feedback-form-state');
-        formData = { email: '', message: '' };
+     formData.email = '';
+     formData.message = '';
+
         
         formEl.reset(); 
-        // form.reset();
+        
 });
 });
 
